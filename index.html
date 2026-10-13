@@ -9,34 +9,60 @@
 </head>
 <body>
 
-    <div class="login-box">
-        <div class="hospital-icon">✚</div>
+    <div class="login-box" id="loginPage">
+        <h2>✚ City Hospital</h2>
+        <p>Hospital Management System</p>
 
-        <h2>City Hospital</h2>
-        <p class="subtitle">Hospital Management System</p>
+        <form onsubmit="login(event)">
+            <input type="text" id="username"
+                   placeholder="Enter Username" required>
 
-        <form>
-            <label for="username">Username</label>
-            <input
-                type="text"
-                id="username"
-                placeholder="Enter username"
-                required
-            >
-
-            <label for="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter password"
-                required
-            >
+            <input type="password" id="password"
+                   placeholder="Enter Password" required>
 
             <button type="submit">Login</button>
+            <p id="error"></p>
         </form>
-
-        <p class="footer">Your Health, Our Priority</p>
     </div>
+
+    <div class="hospital-info" id="hospitalPage" hidden>
+        <h1>Welcome to City Hospital</h1>
+        <p class="success">Login Successful!</p>
+
+        <h3>Hospital Information</h3>
+        <p><b>Name:</b> City Hospital</p>
+        <p><b>Address:</b> Main Road, Pune, Maharashtra</p>
+        <p><b>Departments:</b> Cardiology, Neurology, Orthopedics</p>
+        <p><b>Services:</b> Emergency, OPD, Laboratory, Pharmacy</p>
+        <p><b>Contact:</b> 020-12345678</p>
+
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function login(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const error = document.getElementById("error");
+
+            if (username === "admin" && password === "1234") {
+                document.getElementById("loginPage").hidden = true;
+                document.getElementById("hospitalPage").hidden = false;
+            } else {
+                error.textContent = "Invalid username or password!";
+            }
+        }
+
+        function logout() {
+            document.getElementById("hospitalPage").hidden = true;
+            document.getElementById("loginPage").hidden = false;
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("error").textContent = "";
+        }
+    </script>
 
 </body>
 </html>
