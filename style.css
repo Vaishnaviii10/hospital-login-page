@@ -1,58 +1,40 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #eaf4f8;
+    background: #eaf4f8;
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.login-box {
-    width: 320px;
+.login-box,
+.hospital-info {
+    background: white;
+    width: 350px;
+    max-width: 100%;
     padding: 30px;
-    background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
-.hospital-icon {
-    width: 55px;
-    height: 55px;
-    line-height: 55px;
-    margin: 0 auto 15px;
-    text-align: center;
-    font-size: 35px;
-    font-weight: bold;
-    color: white;
-    background-color: #008b8b;
-    border-radius: 50%;
-}
-
-h2 {
+h2, h1 {
     text-align: center;
     color: #008080;
-    margin-bottom: 5px;
 }
 
-.subtitle {
+.login-box > p {
     text-align: center;
     color: #666;
-    font-size: 14px;
-    margin-bottom: 25px;
-}
-
-label {
-    display: block;
-    margin-bottom: 6px;
-    color: #333;
-    font-weight: bold;
 }
 
 input {
     width: 100%;
     padding: 12px;
-    margin-bottom: 18px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
@@ -60,13 +42,14 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #008b8b;
+    border-color: #008080;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: #008b8b;
+    margin-top: 10px;
+    background: #008080;
     color: white;
     border: none;
     border-radius: 6px;
@@ -75,12 +58,32 @@ button {
 }
 
 button:hover {
-    background-color: #006666;
+    background: #006666;
 }
 
-.footer {
+#error {
+    color: red;
     text-align: center;
-    color: #777;
-    font-size: 12px;
-    margin-top: 22px;
+    margin-top: 15px;
+}
+
+.success {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hospital-info h3 {
+    color: #008080;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.hospital-info p {
+    line-height: 1.6;
+    color: #444;
+}
+
+[hidden] {
+    display: none !important;
 }
